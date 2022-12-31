@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
 import * as UserController from "./controller/UserControllers.js"
@@ -5,7 +6,7 @@ import * as FlightController from "./controller/FlightControllers.js"
 import { registerValidation, loginValidation, addFlightValidation, reservFlightValidation } from "./validator/validator.js"
 import cors from "cors"
 
-mongoose.connect("mongodb+srv://admin:admin123@cluster0.1xn69mi.mongodb.net/user?retryWrites=true&w=majority")
+mongoose.connect(process.env.URL_DB)
     .then(() => console.log("БД подключена"))
     .catch((e) => console.log("Ошибка подключения БД\n\n", e))
 
